@@ -2,14 +2,17 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     .then(res => res.json())
     .then(data => {
         document.body.style.backgroundImage = `url(${data.urls.regular})`
-		document.getElementById("author").textContent = `By: ${data.user.name}`
+		document.getElementById("author").textContent = `Photo By: ${data.user.name}`
     })
     .catch(err => {
         // Use a default background image/author
         document.body.style.backgroundImage = `url(https://unsplash.com/photos/lE5-z4nTCTQ)`
-		document.getElementById("author").textContent = `By: Michael Fousert`
+		document.getElementById("author").textContent = `Photo By: Michael Fousert`
     })
 
+    // still working on getting the data properly from mlb stats
+
+/*
 fetch("https://mlb-data.p.rapidapi.com/json/named.roster_40.bam?team_id='121'", {
     "method": "GET",
     "headers": {
@@ -25,7 +28,7 @@ fetch("https://mlb-data.p.rapidapi.com/json/named.roster_40.bam?team_id='121'", 
     })
     .then(data => console.log(data))
     .catch(err => console.error(err));
-
+*/
 
 function getCurrentTime() {
     const date = new Date()
