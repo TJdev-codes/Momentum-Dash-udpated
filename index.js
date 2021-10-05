@@ -12,23 +12,22 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
     // still working on getting the data properly from mlb stats
 
-/*
-fetch("https://mlb-data.p.rapidapi.com/json/named.roster_40.bam?team_id='121'", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "mlb-data.p.rapidapi.com",
-        "x-rapidapi-key": "ea912f5cafmsh62a4cbd70905e31p165c87jsn2591959dc408"
-    }
+
+fetch("https://mlb-data.p.rapidapi.com/json/named.leader_hitting_repeater.bam?game_type='R'&results='5'&sort_column='hr'&sports_code='mlb'&season='2021'&leader_hitting_repeater.col_in=hr", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "mlb-data.p.rapidapi.com",
+		"x-rapidapi-key": "ea912f5cafmsh62a4cbd70905e31p165c87jsn2591959dc408"
+	}
 })
-    .then(res => {
-        if (!res.ok) {
-            throw Error("Baseball data not available")
-        }
-        return res.json()
-    })
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
-*/
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+})
+    .catch(err => {
+	    console.error(err);
+});
+
 
 function getCurrentTime() {
     const date = new Date()
@@ -45,6 +44,7 @@ fetch("https://stoicquotesapi.com/v1/api/quotes/random")
         document.getElementById("quote-author").textContent = `- ${data.author}`
         console.log(data)
     })
+    .catch(err => console.error(err))
 
 
 navigator.geolocation.getCurrentPosition(position => {
