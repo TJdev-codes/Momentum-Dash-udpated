@@ -15,13 +15,18 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
 fetch("https://mlb-data.p.rapidapi.com/json/named.leader_hitting_repeater.bam?game_type='R'&results='5'&sort_column='hr'&sports_code='mlb'&season='2021'&leader_hitting_repeater.col_in=hr", {
 	"method": "GET",
+    "body": JSON.stringify(),
 	"headers": {
 		"x-rapidapi-host": "mlb-data.p.rapidapi.com",
 		"x-rapidapi-key": "ea912f5cafmsh62a4cbd70905e31p165c87jsn2591959dc408"
 	}
 })
-    .then(res => res.json())
+    .then(res => 
+        res.json())
     .then(data => {
+        document.getElementById("baseball-top").textContent = `${data.leader_hitting_repeater.leader_hitting_mux.queryResults.row[0].hr}`
+        document.getElementById("baseball-middle").textContent = `${data.leader_hitting_repeater.leader_hitting_mux.queryResults.row[1].hr}`
+        document.getElementById("baseball-bottom").textContent = `${data.leader_hitting_repeater.leader_hitting_mux.queryResults.row[2].hr}`
         console.log(data)
 })
     .catch(err => {
