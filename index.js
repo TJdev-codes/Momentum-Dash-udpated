@@ -18,7 +18,7 @@ fetch("https://mlb-data.p.rapidapi.com/json/named.leader_hitting_repeater.bam?ga
     "body": JSON.stringify(),
 	"headers": {
 		"x-rapidapi-host": "mlb-data.p.rapidapi.com",
-		"x-rapidapi-key": "ea912f5cafmsh62a4cbd70905e31p165c87jsn2591959dc408"
+		"x-rapidapi-key": ""
 	}
 })
     .then(res => 
